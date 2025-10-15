@@ -8,7 +8,7 @@ List records
 Edit records
 Delete records
 
-## ⚙️ How to Compile
+### ⚙️ How to Compile
 Manually:
 gcc src/main.c src/create.c src/read.c src/update.c src/delete.c -Iinclude -o build/crud.exe
 
