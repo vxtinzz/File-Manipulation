@@ -11,8 +11,10 @@ build:
 $(OUT): $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o $(OUT)
 
+ifeq ($(OS),Windows_NT)
 clean:
-	rm -rf build
-
-run: all
-	./build/crud.exe
+	del /Q $(BIN).exe 2>nul || true
+else
+clean:
+	rm -f $(BIN)
+endif
