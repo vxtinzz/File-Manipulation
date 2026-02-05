@@ -7,7 +7,7 @@ void READ(int id)
 {
     User usuario;
     FILE *arq;
-    arq = fopen("../data/register.txt", "r");
+    arq = fopen("./data/register.txt", "r");
     if (arq == NULL)
     {
         printf("Erro ao abrir o arquivo!\n");
@@ -30,7 +30,7 @@ void READALL()
 {
     User usuario;
     FILE *arq;
-    arq = fopen("../data/register.txt", "r");
+    arq = fopen("./data/register.txt", "r");
     if (arq == NULL)
     {
         printf("Erro ao abrir o arquivo!\n");

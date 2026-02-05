@@ -7,8 +7,8 @@ void DELETE(int id)
 {
     User usuario;
     FILE *arq, *temp;
-    arq = fopen("../data/register.txt", "r");
-    temp = fopen("../data/temp.txt", "a");
+    arq = fopen("./data/register.txt", "r");
+    temp = fopen("./data/temp.txt", "a");
     if (arq == NULL || temp == NULL)
     {
         printf("Erro ao abrir o arquivo!\n");
@@ -24,8 +24,8 @@ void DELETE(int id)
     fclose(arq);
     fclose(temp);
 
-    remove("../data/register.txt");
-    rename("../data/temp.txt", "../data/register.txt");
+    remove("./data/register.txt");
+    rename("./data/temp.txt", "./data/register.txt");
 
     printf("Registro removido com sucesso.\n");
 }

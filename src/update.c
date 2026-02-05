@@ -9,8 +9,8 @@ void UPDATE(int id)
     getchar();
     User usuario;
     FILE *arq, *temp;
-    arq = fopen("../data/register.txt", "r");
-    temp = fopen("../data/temp.txt", "a");
+    arq = fopen("./data/register.txt", "r");
+    temp = fopen("./data/temp.txt", "a");
     if (arq == NULL || temp == NULL)
     {
         printf("Erro ao abrir o arquivo!\n");
@@ -37,8 +37,8 @@ void UPDATE(int id)
     fclose(arq);
     fclose(temp);
 
-    remove("../data/register.txt");
-    rename("../data/temp.txt", "../data/register.txt");
+    remove("./data/register.txt");
+    rename("./data/temp.txt", "./data/register.txt");
 
     printf("Registro Atualizado com sucesso.\n");
 }

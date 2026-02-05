@@ -6,11 +6,12 @@
 
 void CREATE()
 {
+    getchar();
     User usuario;
     int lastId = 0;
     FILE *arq;
 
-    arq = fopen("../data/register.txt", "r");
+    arq = fopen("./data/register.txt", "r");
     if (arq != NULL)
     {
         while (fscanf(arq, "%d;%49[^;];%49[^;];%d\n",
@@ -21,7 +22,7 @@ void CREATE()
         fclose(arq);
     }
 
-    arq = fopen("../data/register.txt", "a");
+    arq = fopen("./data/register.txt", "a");
     if (arq == NULL)
     {
         printf("Erro ao abrir o arquivo!\n");
