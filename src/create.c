@@ -43,4 +43,3 @@ void CREATE()
     fclose(arq);
 
     printf("Usuário adicionado!\n");
-}
