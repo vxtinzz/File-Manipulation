@@ -10,17 +10,18 @@ void READ(int id)
     arq = fopen("./data/register.txt", "r");
     if (arq == NULL)
     {
-        printf("Erro ao abrir o arquivo!\n");
+        printf("Error opening file!\n");
         return;
     }
-    while (fscanf(arq, "%d;%49[^;];%49[^;];%d\n", &usuario.id, usuario.name, usuario.email, &usuario.age) != EOF)
+    while (fscanf(arq, "%d;%49[^;];%49[^;];%49[^;];%d\n", &usuario.id, usuario.semanticId, usuario.name, usuario.email, &usuario.age) != EOF)
     {
         if (usuario.id == id)
         {
-            printf("ID: %d\n", usuario.id);
-            printf("Nome: %s\n", usuario.name);
+            printf("ID: %d\n",usuario.id);
+            printf("Semantic ID: %s\n", usuario.semanticId);
+            printf("Name: %s\n", usuario.name);
             printf("Email: %s\n", usuario.email);
-            printf("Idade: %d\n", usuario.age);
+            printf("Age: %d\n", usuario.age);
         }
     }
     fclose(arq);
@@ -33,16 +34,17 @@ void READALL()
     arq = fopen("./data/register.txt", "r");
     if (arq == NULL)
     {
-        printf("Erro ao abrir o arquivo!\n");
+        printf("Error opening file!\n");
         return;
     }
-    printf("----Lista de Usuarios----\n");
-    while (fscanf(arq, "%d;%49[^;];%49[^;];%d\n", &usuario.id, usuario.name, usuario.email, &usuario.age) != EOF)
+    printf("----User List----\n");
+    while (fscanf(arq, "%d;%49[^;];%49[^;];%49[^;];%d\n", &usuario.id, usuario.semanticId, usuario.name, usuario.email, &usuario.age) != EOF)
     {
         printf("ID: %d\n", usuario.id);
-        printf("Nome: %s\n", usuario.name);
+        printf("Semantic ID: %s\n", usuario.semanticId);
+        printf("Name: %s\n", usuario.name);
         printf("Email: %s\n", usuario.email);
-        printf("Idade: %d\n", usuario.age);
+        printf("Age: %d\n", usuario.age);
         printf("------------------------\n");
     }
     fclose(arq);

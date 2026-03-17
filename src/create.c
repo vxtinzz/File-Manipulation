@@ -11,7 +11,7 @@ void CREATE()
     int lastId = 0;
     FILE *arq;
 
-    arq = fopen("../data/register.txt", "r");
+    arq = fopen("./data/register.txt", "r");
     if (arq != NULL)
     {
         while (fscanf(arq, "%d;%49[^;];%49[^;];%49[^;];%d\n",
@@ -22,13 +22,14 @@ void CREATE()
         fclose(arq);
     }
 
-    arq = fopen("../data/register.txt", "a");
+    arq = fopen("./data/register.txt", "a");
     if (arq == NULL)
     {
         printf("Erro ao abrir o arquivo!\n");
         return;
     }
 
+    getchar();
     printf("Nome: ");
     fgets(usuario.name, sizeof(usuario.name), stdin);
     usuario.name[strcspn(usuario.name, "\n")] = '\0';
@@ -37,9 +38,10 @@ void CREATE()
     printf("Idade: ");
     scanf("%d", &usuario.age);
     usuario.id = lastId + 1;
-    usuario.semanticId = "SUP-YYYY-NUMBER";
+    strcpy(usuario.semanticId, "SUP-2026-XYG32");
 
-    fprintf(arq, "%d;%s;%s;%d\n", usuario.id, usuario.name, usuario.email, usuario.age);
+    fprintf(arq, "%d;%s;%s;%s;%d\n", usuario.id, usuario.semanticId, usuario.name, usuario.email, usuario.age);
     fclose(arq);
 
     printf("Usuário adicionado!\n");
+}

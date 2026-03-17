@@ -7,27 +7,42 @@ void DELETE(int id)
 {
     User usuario;
     FILE *arq, *temp;
+    int found = 0;
     arq = fopen("./data/register.txt", "r");
     temp = fopen("./data/temp.txt", "a");
     if (arq == NULL || temp == NULL)
     {
-        printf("Erro ao abrir o arquivo!\n");
+        printf("Error opening file!\n");
         return;
     }
-    while (fscanf(arq, "%d;%49[^;];%49[^;];%d\n", &usuario.id, usuario.name, usuario.email, &usuario.age) != EOF)
+    while (fscanf(arq, "%d;%49[^;];%49[^;];%49[^;];%d\n", &usuario.id, usuario.semanticId, usuario.name, usuario.email, &usuario.age) != EOF)
     {
         if (usuario.id != id)
         {
-            fprintf(temp, "%d;%s;%s;%d\n", usuario.id, usuario.name, usuario.email, usuario.age);
+            fprintf(temp, "%d;%s;%s;%s;%d\n", usuario.id, usuario.semanticId, usuario.name, usuario.email, usuario.age);
+        }else if(usuario.id == id){
+            found = 1;
+            continue;
         }
     }
     fclose(arq);
     fclose(temp);
 
-    remove("./data/register.txt");
-    rename("./data/temp.txt", "./data/register.txt");
+    if (remove("./data/register.txt") != 0) {
+    printf("Error removing original file\n");
+    return;
+    }
 
-    printf("Registro removido com sucesso.\n");
+    if (rename("./data/temp.txt", "./data/register.txt") != 0) {
+    printf("Erro renaming file.\n");
+    return;
+    }
+    if(found){
+    printf("Record successfully removed!!\n");
+    }else{
+    printf("Id Not Found!!\n");
+    }
+    
 }
 
 void DELETEALL()

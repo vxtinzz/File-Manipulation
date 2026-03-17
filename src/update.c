@@ -16,11 +16,11 @@ void UPDATE(int id)
         printf("Erro ao abrir o arquivo!\n");
         return;
     }
-    while (fscanf(arq, "%d;%49[^;];%49[^;];%d\n", &usuario.id, usuario.name, usuario.email, &usuario.age) != EOF)
+    while (fscanf(arq, "%d;%49[^;];%49[^;];%49[^;];%d\n", &usuario.id, usuario.semanticId, usuario.name, usuario.email, &usuario.age) != EOF)
     {
         if (usuario.id != id)
         {
-            fprintf(temp, "%d;%s;%s;%d \n", usuario.id, usuario.name, usuario.email, usuario.age);
+            fprintf(temp, "%d;%s;%s;%s;%d \n", usuario.id, usuario.semanticId, usuario.name, usuario.email, usuario.age);
         }
         if (usuario.id == id)
         {
@@ -31,7 +31,7 @@ void UPDATE(int id)
             scanf("%s", usuario.email);
             printf("Idade: ");
             scanf("%d", &usuario.age);
-            fprintf(temp, "%d;%s;%s;%d\n", usuario.id, usuario.name, usuario.email, usuario.age);
+            fprintf(temp, "%d;%s,%s;%s;%d\n", usuario.id, usuario.semanticId, usuario.name, usuario.email, usuario.age);
         }
     }
     fclose(arq);
