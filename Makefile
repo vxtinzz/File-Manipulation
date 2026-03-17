@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Iinclude
-SRC = src/main.c src/create.c src/read.c src/update.c src/delete.c
+SRC = src/main.c src/create.c src/read.c src/update.c src/delete.c src/semanticid.c
 OUT = build/crud.exe
 
 all: build $(OUT)

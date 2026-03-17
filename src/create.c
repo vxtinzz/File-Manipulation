@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 #include "..\include\user.h"
 #include "..\include\crud.h"
+#include "..\include\semanticid.h"
 
 void CREATE()
 {
@@ -38,7 +38,7 @@ void CREATE()
     printf("Idade: ");
     scanf("%d", &usuario.age);
     usuario.id = lastId + 1;
-    strcpy(usuario.semanticId, "SUP-2026-XYG32");
+    generateSemanticId(usuario.semanticId);
 
     fprintf(arq, "%d;%s;%s;%s;%d\n", usuario.id, usuario.semanticId, usuario.name, usuario.email, usuario.age);
     fclose(arq);

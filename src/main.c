@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "..\include\crud.h"
+#include "..\include\semanticid.h"
 
 int main()
 {
+    initRandomSeed();
     int op, id;
     printf("==Sistema de Clientes==\n");
     do

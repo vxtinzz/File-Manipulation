@@ -1,2 +1,2 @@
-1;SUP-2026-XYG32;Victor;vx@github.com;20
-2;SUP-2026-XYG32;teste;teste;1
+1;USER-2026-3AMDAGQH;Victor Hugo;vx@git.com;20
+2;USER-2026-MNMOKEHG;Lazaro Dornelas;zacksfy@dev.com;20
