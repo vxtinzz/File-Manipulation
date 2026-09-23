@@ -1,2 +1,0 @@
-1;USER-2026-3AMDAGQH;Victor Hugo;vx@git.com;20
-2;USER-2026-MNMOKEHG;Lazaro Dornelas;zacksfy@dev.com;20

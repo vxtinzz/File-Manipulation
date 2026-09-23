@@ -31,7 +31,7 @@ void UPDATE(int id)
             scanf("%s", usuario.email);
             printf("Idade: ");
             scanf("%d", &usuario.age);
-            fprintf(temp, "%d;%s,%s;%s;%d\n", usuario.id, usuario.semanticId, usuario.name, usuario.email, usuario.age);
+            fprintf(temp, "%d;%s;%s;%s;%d\n", usuario.id, usuario.semanticId, usuario.name, usuario.email, usuario.age);
         }
     }
     fclose(arq);
